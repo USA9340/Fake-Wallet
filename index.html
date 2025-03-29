@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeNest Savings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="auth-header">
+        <div class="logo">
+            <h1>SafeNest Savings</h1>
+        </div>
+        <div class="auth-links">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Support</a>
+        </div>
+    </header>
+
+    <div class="login-container" id="login-container">
+        <div class="login-form">
+            <h1>SafeNest Savings</h1>
+            <form id="login-form">
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="register-link">Register</a></p>
+        </div>
+    </div>
+
+    <div class="register-container" id="register-container" style="display: none;">
+        <div class="register-form">
+            <h1>Create Account</h1>
+            <form id="register-form">
+                <div class="input-group">
+                    <input type="text" id="fullname" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="reg-email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="reg-password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="register-btn">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+        </div>
+    </div>
+
+    <div class="dashboard-container" id="dashboard-container" style="display: none;">
+        <!-- Header -->
+        <header>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <h1>SafeNest Savings</h1>
+            <div class="header-icons">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="profile-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="user-info">
+                    <i class="fas fa-user"></i>
+                    <div>
+                        <h3 id="sidebar-username">John Doe</h3>
+                        <p id="sidebar-account-number">Acc No: 278115604</p>
+                    </div>
+                </div>
+                <div class="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="sidebar-balance">
+                <p>Balance</p>
+                <h2 id="sidebar-balance">$0.00</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li data-page="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+                <li data-page="profile"><i class="fas fa-user-circle"></i> My Profile</li>
+                <li data-page="password"><i class="fas fa-key"></i> Change Password</li>
+                <li data-page="statement"><i class="fas fa-file-alt"></i> My Statement</li>
+                <li data-page="domestic-transfer"><i class="fas fa-exchange-alt"></i> Domestic Transfer</li>
+                <li data-page="inter-bank"><i class="fas fa-university"></i> Inter Bank Transfer</li>
+                <li data-page="wire-transfer"><i class="fas fa-globe"></i> Wire Transfer</li>
+                <li data-page="support"><i class="fas fa-headset"></i> Support</li>
+                <li id="logout-btn"><i class="fas fa-sign-out-alt"></i> Log out</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Dashboard Page -->
+            <div class="page active" id="dashboard-page">
+                <div class="balance-card">
+                    <div class="balance-info">
+                        <h3 id="username">John Doe</h3>
+                        <h1 id="balance">$0.00</h1>
+                        <p>Ledger Balance: <span id="ledger-balance">$0.00</span></p>
+                    </div>
+                    <div class="balance-status">
+                        <span class="status active">Active</span>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <div class="action-item" id="wire-transfer-btn">
+                        <div class="action-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <p>Wire transfer</p>
+                    </div>
+                    <div class="action-item" id="deposit-btn">
+                        <div class="action-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <p>Deposit</p>
+                    </div>
+                    <div class="action-item" id="inter-bank-btn">
+                        <div class="action-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <p>Inter Bank</p>
+                    </div>
+                    <div class="action-item" id="cards-btn">
+                        <div class="action-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <p>Cards</p>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Quick links</h2>
+                <div class="quick-links">
+                    <div class="link-item green" data-page="loan">
+                        <i class="fas fa-credit-card"></i>
+                        <p>Loan</p>
+                    </div>
+                    <div class="link-item pink" data-page="settings">
+                        <i class="fas fa-cog"></i>
+                        <p>Settings</p>
+                    </div>
+                    <div class="link-item yellow" data-page="history">
+                        <i class="fas fa-history"></i>
+                        <p>History</p>
+                    </div>
+                    <div class="link-item green" data-page="support">
+                        <i class="fas fa-headset"></i>
+                        <p>Support</p>
+                    </div>
+                    <div class="link-item pink" data-page="password">
+                        <i class="fas fa-key"></i>
+                        <p>Password</p>
+                    </div>
+                    <div class="link-item green" data-page="cards">
+                        <i class="fas fa-credit-card"></i>
+                        <p>Cards</p>
+                    </div>
+                </div>
+
+                <div class="transactions-section">
+                    <div class="section-header">
+                        <h2>Credit Transactions</h2>
+                        <a href="#" class="view-all" data-page="history">View All</a>
+                    </div>
+                    <div class="transactions" id="credit-transactions">
+                        <!-- Credit transactions will be populated here -->
+                    </div>
+                </div>
+
+                <div class="transactions-section">
+                    <div class="section-header">
+                        <h2>Debit Transactions</h2>
+                        <a href="#" class="view-all" data-page="history">View All</a>
+                    </div>
+                    <div class="transactions" id="debit-transactions">
+                        <!-- Debit transactions will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div class="page" id="profile-page">
+                <h2 class="page-title">My Profile</h2>
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3 id="profile-name">John Doe</h3>
+                        <p id="profile-account">Account Number: <span id="profile-account-number">278115604</span></p>
+                    </div>
+                    <div class="profile-details">
+                        <div class="profile-item">
+                            <label>Full Name</label>
+                            <p id="profile-fullname">John Doe</p>
+                        </div>
+                        <div class="profile-item">
+                            <label>Email Address</label>
+                            <p id="profile-email">john@example.com</p>
+                        </div>
+                        <div class="profile-item">
+                            <label>Account Status</label>
+                            <p><span class="status active">Active</span></p>
+                        </div>
+                        <div class="profile-item">
+                            <label>Registration Date</label>
+                            <p id="profile-date">March 28, 2025</p>
+                        </div>
+                    </div>
+                    <button class="edit-profile-btn">Edit Profile</button>
+                </div>
+            </div>
+
+            <!-- Password Page -->
+            <div class="page" id="password-page">
+                <h2 class="page-title">Change Password</h2>
+                <div class="password-card">
+                    <form id="password-form">
+                        <div class="input-group">
+                            <label for="current-password">Current Password</label>
+                            <input type="password" id="current-password" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="new-password">New Password</label>
+                            <input type="password" id="new-password" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="confirm-password">Confirm New Password</label>
+                            <input type="password" id="confirm-password" required>
+                        </div>
+                        <button type="submit" class="change-password-btn">Change Password</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Statement Page -->
+            <div class="page" id="statement-page">
+                <h2 class="page-title">My Statement</h2>
+                <div class="statement-card">
+                    <div class="statement-filters">
+                        <div class="input-group">
+                            <label for="statement-from">From</label>
+                            <input type="date" id="statement-from">
+                        </div>
+                        <div class="input-group">
+                            <label for="statement-to">To</label>
+                            <input type="date" id="statement-to">
+                        </div>
+                        <button id="generate-statement" class="generate-btn">Generate</button>
+                    </div>
+                    <div class="statement-table-container">
+                        <table class="statement-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Type</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="statement-table-body">
+                                <!-- Statement data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="download-statement" class="download-btn">Download PDF</button>
+                </div>
+            </div>
+
+            <!-- Domestic Transfer Page -->
+            <div class="page" id="domestic-transfer-page">
+                <h2 class="page-title">Domestic Transfer</h2>
+                <div class="transfer-card">
+                    <form id="domestic-transfer-form">
+                        <div class="input-group">
+                            <label for="domestic-recipient">Recipient Email or Account Number</label>
+                            <input type="text" id="domestic-recipient" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="domestic-amount">Amount</label>
+                            <input type="number" id="domestic-amount" min="1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="domestic-description">Description (Optional)</label>
+                            <input type="text" id="domestic-description">
+                        </div>
+                        <button type="submit" class="transfer-btn">Send Money</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Inter Bank Transfer Page -->
+            <div class="page" id="inter-bank-page">
+                <h2 class="page-title">Inter Bank Transfer</h2>
+                <div class="transfer-card">
+                    <form id="inter-bank-form">
+                        <div class="input-group">
+                            <label for="bank-name">Bank Name</label>
+                            <select id="bank-name" required>
+                                <option value="">Select Bank</option>
+                                <option value="bank1">Bank 1</option>
+                                <option value="bank2">Bank 2</option>
+                                <option value="bank3">Bank 3</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="bank-account">Account Number</label>
+                            <input type="text" id="bank-account" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="bank-amount">Amount</label>
+                            <input type="number" id="bank-amount" min="1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="bank-description">Description (Optional)</label>
+                            <input type="text" id="bank-description">
+                        </div>
+                        <button type="submit" class="transfer-btn">Send Money</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Wire Transfer Page -->
+            <div class="page" id="wire-transfer-page">
+                <h2 class="page-title">Wire Transfer</h2>
+                <div class="transfer-card">
+                    <form id="wire-transfer-form">
+                        <div class="input-group">
+                            <label for="wire-recipient">Recipient Email or Account Number</label>
+                            <input type="text" id="wire-recipient" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="wire-amount">Amount</label>
+                            <input type="number" id="wire-amount" min="1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="wire-description">Description (Optional)</label>
+                            <input type="text" id="wire-description">
+                        </div>
+                        <button type="submit" class="transfer-btn">Send Money</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Support Page -->
+            <div class="page" id="support-page">
+                <h2 class="page-title">Support</h2>
+                <div class="support-card">
+                    <div class="support-options">
+                        <div class="support-option">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email Support</h3>
+                            <p>support@safenest.com</p>
+                        </div>
+                        <div class="support-option">
+                            <i class="fas fa-phone"></i>
+                            <h3>Phone Support</h3>
+                            <p>+1 (800) 123-4567</p>
+                        </div>
+                        <div class="support-option">
+                            <i class="fas fa-comment-dots"></i>
+                            <h3>Live Chat</h3>
+                            <p>Available 24/7</p>
+                        </div>
+                    </div>
+                    <div class="support-form">
+                        <h3>Send us a message</h3>
+                        <form id="support-form">
+                            <div class="input-group">
+                                <label for="support-subject">Subject</label>
+                                <input type="text" id="support-subject" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="support-message">Message</label>
+                                <textarea id="support-message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="support-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div class="page" id="settings-page">
+                <h2 class="page-title">Settings</h2>
+                <div class="settings-card">
+                    <div class="settings-section">
+                        <h3>Notification Settings</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Email Notifications</h4>
+                                <p>Receive transaction alerts via email</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked id="email-notifications">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>SMS Notifications</h4>
+                                <p>Receive transaction alerts via SMS</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="sms-notifications">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="settings-section">
+                        <h3>Security Settings</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Two-Factor Authentication</h4>
+                                <p>Add an extra layer of security</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="two-factor">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Login Notifications</h4>
+                                <p>Get notified when someone logs into your account</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked id="login-notifications">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <button class="save-settings-btn">Save Settings</button>
+                </div>
+            </div>
+
+            <!-- History Page -->
+            <div class="page" id="history-page">
+                <h2 class="page-title">Transaction History</h2>
+                <div class="history-card">
+                    <div class="history-filters">
+                        <div class="input-group">
+                            <label for="history-type">Transaction Type</label>
+                            <select id="history-type">
+                                <option value="all">All Transactions</option>
+                                <option value="credit">Credit Only</option>
+                                <option value="debit">Debit Only</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="history-date">Date Range</label>
+                            <select id="history-date">
+                                <option value="all">All Time</option>
+                                <option value="today">Today</option>
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                                <option value="year">This Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="history-table-container">
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-table-body">
+                                <!-- History data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loan Page -->
+            <div class="page" id="loan-page">
+                <h2 class="page-title">Loan Services</h2>
+                <div class="loan-card">
+                    <div class="loan-options">
+                        <div class="loan-option">
+                            <i class="fas fa-home"></i>
+                            <h3>Home Loan</h3>
+                            <p>Interest Rate: 3.5%</p>
+                            <button class="apply-btn">Apply Now</button>
+                        </div>
+                        <div class="loan-option">
+                            <i class="fas fa-car"></i>
+                            <h3>Auto Loan</h3>
+                            <p>Interest Rate: 4.2%</p>
+                            <button class="apply-btn">Apply Now</button>
+                        </div>
+                        <div class="loan-option">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Education Loan</h3>
+                            <p>Interest Rate: 2.8%</p>
+                            <button class="apply-btn">Apply Now</button>
+                        </div>
+                        <div class="loan-option">
+                            <i class="fas fa-briefcase"></i>
+                            <h3>Business Loan</h3>
+                            <p>Interest Rate: 5.0%</p>
+                            <button class="apply-btn">Apply Now</button>
+                        </div>
+                    </div>
+                    <div class="loan-calculator">
+                        <h3>Loan Calculator</h3>
+                        <div class="calculator-form">
+                            <div class="input-group">
+                                <label for="loan-amount">Loan Amount</label>
+                                <input type="number" id="loan-amount" min="1000" value="10000">
+                            </div>
+                            <div class="input-group">
+                                <label for="loan-term">Loan Term (Years)</label>
+                                <input type="number" id="loan-term" min="1" max="30" value="5">
+                            </div>
+                            <div class="input-group">
+                                <label for="interest-rate">Interest Rate (%)</label>
+                                <input type="number" id="interest-rate" min="1" max="20" step="0.1" value="4.5">
+                            </div>
+                            <button type="button" id="calculate-loan" class="calculate-btn">Calculate</button>
+                        </div>
+                        <div class="calculator-result">
+                            <div class="result-item">
+                                <h4>Monthly Payment</h4>
+                                <p id="monthly-payment">$186.43</p>
+                            </div>
+                            <div class="result-item">
+                                <h4>Total Payment</h4>
+                                <p id="total-payment">$11,185.80</p>
+                            </div>
+                            <div class="result-item">
+                                <h4>Total Interest</h4>
+                                <p id="total-interest">$1,185.80</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cards Page -->
+            <div class="page" id="cards-page">
+                <h2 class="page-title">Cards</h2>
+                <div class="cards-container">
+                    <div class="card-item">
+                        <div class="credit-card">
+                            <div class="card-header">
+                                <h3>SafeNest Visa</h3>
+                                <i class="fab fa-cc-visa"></i>
+                            </div>
+                            <div class="card-number">
+                                <p>**** **** **** 4567</p>
+                            </div>
+                            <div class="card-details">
+                                <div class="card-holder">
+                                    <p>Card Holder</p>
+                                    <h4 id="card-holder-name">John Doe</h4>
+                                </div>
+                                <div class="card-expiry">
+                                    <p>Expires</p>
+                                    <h4>12/25</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="card-action-btn freeze-btn">
+                                <i class="fas fa-snowflake"></i> Freeze Card
+                            </button>
+                            <button class="card-action-btn details-btn">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="add-card">
+                        <i class="fas fa-plus-circle"></i>
+                        <p>Add New Card</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <div class="nav-item active" data-page="dashboard">
+                <i class="fas fa-home"></i>
+                <p>Home</p>
+            </div>
+            <div class="nav-item" data-page="history">
+                <i class="fas fa-file-alt"></i>
+                <p>Transactions</p>
+            </div>
+            <div class="nav-item" data-page="domestic-transfer">
+                <i class="fas fa-exchange-alt"></i>
+                <p>Transfer</p>
+            </div>
+            <div class="nav-item" data-page="settings">
+                <i class="fas fa-cog"></i>
+                <p>Settings</p>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-dashboard" id="admin-dashboard" style="display: none;">
+        <header class="admin-header">
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <h1>SafeNest Admin</h1>
+            <div class="header-icons">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="profile-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Sidebar -->
+        <div class="sidebar admin-sidebar" id="admin-sidebar">
+            <div class="sidebar-header">
+                <div class="user-info">
+                    <i class="fas fa-user-shield"></i>
+                    <div>
+                        <h3>Admin</h3>
+                        <p>Control Panel</p>
+                    </div>
+                </div>
+                <div class="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="sidebar-balance">
+                <p>Admin Balance</p>
+                <h2 id="admin-balance">$5,000,000,000.00</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active" data-admin-page="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+                <li data-admin-page="users"><i class="fas fa-users"></i> Manage Users</li>
+                <li data-admin-page="fund"><i class="fas fa-money-bill-wave"></i> Fund Users</li>
+                <li data-admin-page="transactions"><i class="fas fa-chart-line"></i> Transactions</li>
+                <li data-admin-page="settings"><i class="fas fa-cog"></i> Settings</li>
+                <li id="admin-logout-btn"><i class="fas fa-sign-out-alt"></i> Log out</li>
+            </ul>
+        </div>
+
+        <!-- Admin Main Content -->
+        <main class="admin-main" id="admin-main-content">
+            <!-- Admin Dashboard Page -->
+            <div class="admin-page active" id="admin-dashboard-page">
+                <h2 class="admin-page-title">Admin Dashboard</h2>
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Users</h3>
+                            <h2 id="total-users">0</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Transactions</h3>
+                            <h2 id="total-transactions">0</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Transfers</h3>
+                            <h2 id="total-transfers">0</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Funds Distributed</h3>
+                            <h2 id="total-funds">$0.00</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-section">
+                    <h3>Recent Users</h3>
+                    <div class="admin-table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Account Number</th>
+                                    <th>Balance</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-users-table">
+                                <!-- Recent users will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="admin-section">
+                    <h3>Recent Transactions</h3>
+                    <div class="admin-table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Amount</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-transactions-table">
+                                <!-- Recent transactions will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Users Page -->
+            <div class="admin-page" id="admin-users-page">
+                <h2 class="admin-page-title">Manage Users</h2>
+                <div class="admin-controls">
+                    <div class="search-box">
+                        <input type="text" id="user-search" placeholder="Search users...">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <button id="add-user-btn" class="admin-btn"><i class="fas fa-user-plus"></i> Add User</button>
+                </div>
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Account Number</th>
+                                <th>Balance</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-table-body">
+                            <!-- User data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Admin Fund Users Page -->
+            <div class="admin-page" id="admin-fund-page">
+                <h2 class="admin-page-title">Fund Users</h2>
+                <div class="fund-card">
+                    <form id="admin-fund-form">
+                        <div class="input-group">
+                            <label for="fund-user-email">User Email or Account Number</label>
+                            <input type="text" id="fund-user-email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="fund-amount">Amount</label>
+                            <input type="number" id="fund-amount" min="1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="fund-description">Description (Optional)</label>
+                            <input type="text" id="fund-description" placeholder="Admin Funding">
+                        </div>
+                        <button type="submit" class="fund-btn">Fund User</button>
+                    </form>
+                </div>
+                <div class="admin-section">
+                    <h3>Recent Funding Transactions</h3>
+                    <div class="admin-table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>User</th>
+                                    <th>Amount</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="funding-transactions-table">
+                                <!-- Funding transactions will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Transactions Page -->
+            <div class="admin-page" id="admin-transactions-page">
+                <h2 class="admin-page-title">All Transactions</h2>
+                <div class="admin-controls">
+                    <div class="filter-controls">
+                        <div class="input-group">
+                            <label for="transaction-type">Type</label>
+                            <select id="transaction-type">
+                                <option value="all">All Types</option>
+                                <option value="credit">Credit</option>
+                                <option value="debit">Debit</option>
+                                <option value="admin">Admin Funding</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="transaction-date">Date Range</label>
+                            <select id="transaction-date">
+                                <option value="all">All Time</option>
+                                <option value="today">Today</option>
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Amount</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactions-table-body">
+                            <!-- Transaction data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Admin Settings Page -->
+            <div class="admin-page" id="admin-settings-page">
+                <h2 class="admin-page-title">Admin Settings</h2>
+                <div class="admin-settings-card">
+                    <div class="settings-section">
+                        <h3>System Settings</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Maintenance Mode</h4>
+                                <p>Put the system in maintenance mode</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="maintenance-mode">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>User Registration</h4>
+                                <p>Allow new user registrations</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked id="allow-registration">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="settings-section">
+                        <h3>Security Settings</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Two-Factor Authentication</h4>
+                                <p>Require 2FA for all users</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="require-2fa">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Transaction Limits</h4>
+                                <p>Set maximum transaction amount</p>
+                            </div>
+                            <div class="input-group">
+                                <input type="number" id="max-transaction" value="10000">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="save-settings-btn">Save Settings</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add User Modal -->
+    <div class="modal" id="add-user-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New User</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="add-user-form">
+                    <div class="input-group">
+                        <label for="add-user-name">Full Name</label>
+                        <input type="text" id="add-user-name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="add-user-email">Email</label>
+                        <input type="email" id="add-user-email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="add-user-password">Password</label>
+                        <input type="password" id="add-user-password" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="add-user-balance">Initial Balance</label>
+                        <input type="number" id="add-user-balance" min="0" value="0">
+                    </div>
+                    <button type="submit" class="add-user-btn">Add User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- View User Modal -->
+    <div class="modal" id="view-user-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>User Details</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="user-details">
+                    <div class="user-detail-item">
+                        <label>Name</label>
+                        <p id="view-user-name"></p>
+                    </div>
+                    <div class="user-detail-item">
+                        <label>Email</label>
+                        <p id="view-user-email"></p>
+                    </div>
+                    <div class="user-detail-item">
+                        <label>Account Number</label>
+                        <p id="view-user-account"></p>
+                    </div>
+                    <div class="user-detail-item">
+                        <label>Balance</label>
+                        <p id="view-user-balance"></p>
+                    </div>
+                    <div class="user-detail-item">
+                        <label>Status</label>
+                        <p id="view-user-status"></p>
+                    </div>
+                    <div class="user-detail-item">
+                        <label>Registration Date</label>
+                        <p id="view-user-date"></p>
+                    </div>
+                </div>
+                <div class="user-actions">
+                    <button class="edit-user-btn">Edit User</button>
+                    <button class="fund-user-btn">Fund User</button>
+                    <button class="toggle-status-btn">Deactivate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="auth-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 SafeNest Savings. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Security</a>
+            </div>
+        </div>
+    </footer>
+    <!-- Begin of Chaport Live Chat code -->
+<script type="text/javascript">
+(function(w,d,v3){
+w.chaportConfig = {
+appId : '67afc612b9a2faf1bc297996'
+};
+
+if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.q=function(){v3._q.push(arguments)};v3.on=function(e,fn){if(!v3._l[e])v3._l[e]=[];v3._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)})(window, document);
+</script>
+<!-- End of Chaport Live Chat code -->
+
+    <script src="script.js"></script>
+</body>
+</html>
